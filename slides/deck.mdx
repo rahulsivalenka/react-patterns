@@ -1,0 +1,38 @@
+import { oceanicNext } from '@code-surfer/themes';
+import { CodeSurfer } from 'code-surfer';
+import { themes } from 'mdx-deck';
+
+import Head from './components/Head';
+
+import './styles/overrides.css';
+
+export const theme = themes.notes;
+
+<Head title="React Working Patterns" />
+
+<!-- Slides Start -->
+
+# React Working Patterns
+
+#### UI Meetup - 15th Mar 2021
+
+###### By Phani Rahul Sivalenka
+
+---
+
+<CodeSurfer theme={oceanicNext}>
+
+```jsx title="Test" subtitle="Test Subtitle"
+import { Head as MdxHead } from 'mdx-deck';
+import React from 'react';
+
+const Head = ({ title }) => (
+  <MdxHead>
+    <title>{title}</title>
+  </MdxHead>
+);
+
+export default Head;
+```
+
+</CodeSurfer>
