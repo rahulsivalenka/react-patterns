@@ -16,23 +16,42 @@ export const theme = themes.notes;
 
 #### UI Meetup - 15th Mar 2021
 
-###### By Phani Rahul Sivalenka
+###### By Phani Rahul Sivalenka [@rahulsivalenka](https://twitter.com/rahulsivalenka)
 
 ---
 
 <CodeSurfer theme={oceanicNext}>
 
-```jsx title="Test" subtitle="Test Subtitle"
-import { Head as MdxHead } from 'mdx-deck';
-import React from 'react';
+```jsx subtitle="consider this edit form" file=./samples/MyEditForm.txt
 
-const Head = ({ title }) => (
-  <MdxHead>
-    <title>{title}</title>
-  </MdxHead>
-);
+```
 
-export default Head;
+```jsx 17:27 subtitle="it has two confirmation dialogs" file=./samples/MyEditForm.txt
+
+```
+
+```jsx 14:15 subtitle="which are opened by these two buttons" file=./samples/MyEditForm.txt
+
+```
+
+```jsx 2:8 subtitle="to open and close each of these we require these state and function declarations" file=./samples/MyEditForm.txt
+
+```
+
+```jsx subtitle="how can we refactor this to make it DRY?" file=./samples/MyEditForm.txt
+
+```
+
+```jsx title="#1 Custom Hook" subtitle="one way is to extract repetitive code into a generic custom hook" file=./samples/MyEditForm-alt1.txt
+
+```
+
+```jsx 12,16:17 title="#1 Custom Hook" subtitle="returning an array allows for easier naming of output variables when using multiple times" file=./samples/MyEditForm-alt1.txt
+
+```
+
+```jsx file=./samples/MyEditForm-alt2.txt
+
 ```
 
 </CodeSurfer>

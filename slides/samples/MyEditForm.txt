@@ -1,0 +1,30 @@
+function MyEditForm() {
+  const [saveConfirmationOpen, setSaveConfirmationOpen] = useState(false)
+  const showSaveConfirmation = () => setSaveConfirmationOpen(true)
+  const hideSaveConfirmation = () => setSaveConfirmationOpen(false)
+
+  const [deleteConfirmationOpen, setDeleteConfirmationOpen] = useState(false)
+  const showDeleteConfirmation = () => setDeleteConfirmationOpen(true)
+  const hideDeleteConfirmation = () => setDeleteConfirmationOpen(false)
+
+  return (
+    <>
+      <form>{/* ... */}</form>
+
+      <button onClick={showSaveConfirmation}>Save</button>
+      <button onClick={showDeleteConfirmation}>Delete</button>
+
+      <ConfirmationDialog
+        message="Are you sure you want to save?"
+        onClose={hideSaveConfirmation}
+        open={saveConfirmationOpen}
+      />
+
+      <ConfirmationDialog
+        message="Are you sure you want to delete?"
+        onClose={hideSaveConfirmation}
+        open={saveConfirmationOpen}
+      />
+    </>
+  )
+}

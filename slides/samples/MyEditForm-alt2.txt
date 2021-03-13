@@ -1,0 +1,47 @@
+const confirmationDialogStateMachine = {
+  default: {
+    on: {
+      OPEN_SAVE_CONFIRMATION: 'saveConfirmation',
+      OPEN_DELETE_CONFIRMATION: 'deleteConfirmation',
+    }
+  },
+  saveConfirmation: {
+    on: {
+      CLOSE: 'default',
+    }
+  },
+  deleteConfirmation: {
+    on: {
+      CLOSE: 'default',
+    }
+  }
+}
+
+function confirmationDialogReducer(state = 'default', { type }) {
+  return confirmationDialogStateMachine[state].on[type]
+}
+
+function MyEditForm() {
+  const [dialogOpen, send] = useReducer(confirmationDialogReducer)
+
+  return (
+    <>
+      <form>{/* ... */}</form>
+
+      <button onClick={() => send('OPEN_SAVE_CONFIRMATION'))}>Save</button>
+      <button onClick={() => send('OPEN_DELETE_CONFIRMATION'))}>Delete</button>
+
+      <ConfirmationDialog
+        message="Are you sure you want to save?"
+        onClose={() => send('CLOSE'))}
+        open={dialogOpen = 'saveConfirmation'}
+      />
+
+      <ConfirmationDialog
+        message="Are you sure you want to delete?"
+        onClose={() => send('CLOSE'))}
+        open={dialogOpen = 'deleteConfirmation'}
+      />
+    </>
+  )
+}

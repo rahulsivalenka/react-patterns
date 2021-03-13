@@ -1,0 +1,39 @@
+function useDialog() {
+  const [open, setOpen] = useState(false);
+
+  const showDialog = useCallback(() => {
+    setOpen(true);
+  }, []);
+
+  const closeDialog = useCallback(() => {
+    setOpen(false);
+  }, []);
+
+  return [open, showDialog, closeDialog];
+}
+
+function MyEditForm() {
+  const [saveConfirmationOpen, showSaveConfirmation, hideSaveConfirmation] = useDialog();
+  const [deleteConfirmationOpen, showDeleteConfirmation, hideDeleteConfirmation] = useDialog();
+
+  return (
+    <>
+      <form>{/* ... */}</form>
+
+      <button onClick={showSaveConfirmation}>Save</button>
+      <button onClick={showDeleteConfirmation}>Delete</button>
+
+      <ConfirmationDialog
+        message="Are you sure you want to save?"
+        onClose={hideSaveConfirmation}
+        open={saveConfirmationOpen}
+      />
+
+      <ConfirmationDialog
+        message="Are you sure you want to delete?"
+        onClose={hideSaveConfirmation}
+        open={saveConfirmationOpen}
+      />
+    </>
+  )
+}
