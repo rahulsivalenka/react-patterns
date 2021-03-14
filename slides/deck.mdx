@@ -22,6 +22,68 @@ export const theme = themes.notes;
 
 ---
 
+### Don't Forget The Deps
+
+---
+
+<CodeSurfer theme={oceanicNext}>
+
+```jsx subtitle="consider this code sample"
+useEffect(() => {
+  if (props?.displayError) {
+    form.validateForm();
+  }
+}, []);
+```
+
+```diff subtitle="the expectation here is to validate the form everytime displayError changes to true. Do you think this expectation is met?"
+
+```
+
+```diff subtitle="useEffect executes every time its dependencies change"
+
+```
+
+```diff 5[4:5] subtitle="as there are no dependencies here it will only execute once and that's it"
+
+```
+
+```diff 5[4:5] subtitle="i.e., even if the displayError comes back to true the form is not revalidated"
+
+```
+
+```jsx 5[4:24] subtitle="to fix we should add props.displayError to the dependency array"
+useEffect(() => {
+  if (props?.displayError) {
+    form.validateForm();
+  }
+}, [props?.displayError]);
+```
+
+```diff subtitle="now what should happen when the form changes and displayError is still true?"
+
+```
+
+```diff subtitle="expectation is, it should revalidate the form. This does not happen!!"
+
+```
+
+```jsx 5[5:9] subtitle="to fix we should add form to the dependency array"
+useEffect(() => {
+  if (props?.displayError) {
+    form.validateForm();
+  }
+}, [form, props?.displayError]);
+```
+
+```diff subtitle="this fulfills all the expectations"
+
+```
+
+</CodeSurfer>
+
+---
+
 ### State Transitions and Keeping Them DRY
 
 ---
