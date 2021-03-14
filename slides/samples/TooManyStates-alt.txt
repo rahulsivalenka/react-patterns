@@ -1,0 +1,34 @@
+function dateSelectionReducer(state, { type, ...payload }) {
+  switch(type) {
+    case 'update':
+      return {
+        ...state,
+        ...payload,
+      };
+    default:
+      return state;
+  }
+}
+
+function DateSelection() {
+  const [{ minToDate, maxDate, minDate, defaultDate }, send] = useReducer(dateSelectionReducer, {
+    minToDate: formValues.fromDate,
+    maxDate: null,
+    minDate: null,
+    defaultDate: null,
+  })
+
+  useEffect(() => {
+    const { min, max } = getMinMaxTimes(getDateInAppTz, dateRange);
+    
+    send({
+      type: 'update',
+      minToDate: min,
+      maxDate: max,
+      minDate: min,
+      defaultDate: max,
+    })
+  }, [/* deps */]);
+
+  // ...
+}

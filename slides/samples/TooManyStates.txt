@@ -1,0 +1,16 @@
+function DateSelection() {
+  const [minToDate, setMinToDate] = useState(formValues.fromDate);
+  const [maxDate, setMaxDate] = useState();
+  const [minDate, setMinDate] = useState();
+  const [defaultDate, setDefaultDate] = useState();
+
+  useEffect(() => {
+    const { min, max } = getMinMaxTimes(getDateInAppTz, dateRange);
+    setMinToDate(min);
+    setMaxDate(max);
+    setMinDate(min);
+    setDefaultDate(max);
+  }, [/* deps */]);
+
+  // ...
+}
