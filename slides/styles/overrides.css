@@ -5,6 +5,7 @@
 }
 
 /* Notes Theme text-alignment fix for code surfer blocks */
-.cs-layout {
+.cs-layout,
+.cs-content {
   text-align: left;
 }

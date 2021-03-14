@@ -1,7 +1,8 @@
 import { oceanicNext } from '@code-surfer/themes';
-import { CodeSurfer } from 'code-surfer';
+import { CodeSurfer, CodeSurferColumns, Step } from 'code-surfer';
 import { themes } from 'mdx-deck';
 
+import { COLUMN_THEMES } from './constants';
 import Head from './components/Head';
 
 import './styles/overrides.css';
@@ -62,12 +63,61 @@ export const theme = themes.notes;
 
 ```
 
-```jsx 25[29:33],31[15:62],32[15:62],36,42 title="#2 State Machine" subtitle="trigger the corresponding event to change the state" file=./samples/MyEditForm-alt2.txt
+```jsx 25[29:32],27,33[15:66],34[15:68],38,44 title="#2 State Machine" subtitle="trigger the corresponding event to change the state" file=./samples/MyEditForm-alt2.txt
 
 ```
 
-```jsx 37,43 title="#2 State Machine" subtitle="use the state to determine which dialog to show" file=./samples/MyEditForm-alt2.txt
+```jsx 39,45 title="#2 State Machine" subtitle="use the state to determine which dialog to show" file=./samples/MyEditForm-alt2.txt
 
 ```
 
 </CodeSurfer>
+
+---
+
+##### Visualizing the state machine
+
+<iframe
+  height="100%"
+  width="90%"
+  src="https://xstate.js.org/viz/?gist=f4019c6d8c84f86de8e1fc4fd1883dec"
+/>
+
+---
+
+##### Another use case
+
+<iframe
+  height="100%"
+  width="90%"
+  src="https://xstate.js.org/viz/?gist=7d8c7c185ee2d08f4ce53c015798567a"
+/>
+
+---
+
+<CodeSurferColumns themes={COLUMN_THEMES}>
+
+<Step title="#2 State Machine: Advantages">
+
+```jsx 1:22 file=./samples/MyEditForm-alt2.txt
+
+```
+
+<div style="text-align: left; font-size: 1.8rem; line-height: 1.25;">
+
+### Advantages
+
+1. Clean
+2. Predictable
+3. Single place to view/change all the states and transitions
+
+### Resources
+
+- [Robust React User Interfaces with Finite State Machines](https://css-tricks.com/robust-react-user-interfaces-with-finite-state-machines/)
+- [Finite State Machines with React](https://css-tricks.com/finite-state-machines-with-react/)
+
+</div>
+
+</Step>
+
+</CodeSurferColumns>

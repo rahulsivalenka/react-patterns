@@ -24,22 +24,24 @@ function confirmationDialogReducer(state, { type }) {
 function MyEditForm() {
   const [visibleDialogType, send /* or dispatch */] = useReducer(confirmationDialogReducer, 'none')
 
+  const transition = (dialogType) => send({ type: dialogType });
+
   return (
     <>
       <form>{/* ... */}</form>
 
-      <button onClick={() => send('OPEN_SAVE_CONFIRMATION'))}>Save</button>
-      <button onClick={() => send('OPEN_DELETE_CONFIRMATION'))}>Delete</button>
+      <button onClick={() => transition('OPEN_SAVE_CONFIRMATION')}>Save</button>
+      <button onClick={() => transition('OPEN_DELETE_CONFIRMATION')}>Delete</button>
 
       <ConfirmationDialog
         message="Are you sure you want to save?"
-        onClose={() => send('CLOSE'))}
+        onClose={() => transition('CLOSE')}
         open={visibleDialogType === 'saveConfirmation'}
       />
 
       <ConfirmationDialog
         message="Are you sure you want to delete?"
-        onClose={() => send('CLOSE'))}
+        onClose={() => transition('CLOSE')}
         open={visibleDialogType === 'deleteConfirmation'}
       />
     </>
