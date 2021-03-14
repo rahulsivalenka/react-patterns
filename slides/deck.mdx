@@ -50,7 +50,23 @@ export const theme = themes.notes;
 
 ```
 
-```jsx file=./samples/MyEditForm-alt2.txt
+```jsx title="#2 State Machine" subtitle="another way is to use state machine pattern" file=./samples/MyEditForm-alt2.txt
+
+```
+
+```jsx 1:18 title="#2 State Machine" subtitle="define various states and transitions in an object format" file=./samples/MyEditForm-alt2.txt
+
+```
+
+```jsx 20:22,25 title="#2 State Machine" subtitle="define a reducer which performs the state transitions as per the state machine defined" file=./samples/MyEditForm-alt2.txt
+
+```
+
+```jsx 25[29:33],31[15:62],32[15:62],36,42 title="#2 State Machine" subtitle="trigger the corresponding event to change the state" file=./samples/MyEditForm-alt2.txt
+
+```
+
+```jsx 37,43 title="#2 State Machine" subtitle="use the state to determine which dialog to show" file=./samples/MyEditForm-alt2.txt
 
 ```
 
