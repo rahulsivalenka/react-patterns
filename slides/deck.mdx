@@ -1,5 +1,9 @@
 import { oceanicNext } from '@code-surfer/themes';
-import { CodeSurfer, CodeSurferColumns, Step } from 'code-surfer';
+import {
+  CodeSurfer,
+  CodeSurferColumns,
+  Step,
+} from 'code-surfer';
 import { themes } from 'mdx-deck';
 
 import { COLUMN_THEMES } from './constants';
@@ -19,6 +23,142 @@ export const theme = themes.notes;
 #### UI Meetup - 15th Mar 2021
 
 ###### By Phani Rahul Sivalenka [@rahulsivalenka](https://twitter.com/rahulsivalenka)
+
+---
+
+### Consistency
+
+---
+
+<CodeSurferColumns themes={[...COLUMN_THEMES, ...COLUMN_THEMES]}>
+
+<Step subtitle="consider these code samples. What do you think will improve consistency in these?">
+
+```jsx
+function Dialog({
+  open,
+  onClose,
+  ...rest
+}) {
+  /* ... */
+}
+```
+
+```jsx
+function ConfirmationDialog({
+  confirmationDialogOpen,
+  onCloseConfirmationDialog,
+  ...rest
+}) {
+  return (
+    <Dialog
+      open={confirmationDialogOpen}
+      onClose={
+        onCloseConfirmationDialog
+      }
+      {...rest}
+    />
+  );
+}
+```
+
+```jsx
+function EditDialog({
+  openEditDialog,
+  closeEditDialog,
+  ...rest
+}) {
+  return (
+    <Dialog
+      open={openEditDialog}
+      onClose={closeEditDialog}
+      {...rest}
+    />
+  );
+}
+```
+
+```jsx
+function DrilldownDialog({
+  isDrilldownDialogOpen,
+  handleClose,
+  ...rest
+}) {
+  return (
+    <Dialog
+      open={isDrilldownDialogOpen}
+      onClose={handleClose}
+      {...rest}
+    />
+  );
+}
+```
+
+</Step>
+
+<Step subtitle="open and onClose can be consistent across the samples">
+
+```jsx
+function Dialog({
+  open,
+  onClose,
+  ...rest
+}) {
+  /* ... */
+}
+```
+
+```jsx
+function ConfirmationDialog({
+  open,
+  onClose,
+  ...rest
+}) {
+  return (
+    <Dialog
+      open={open}
+      onClose={onClose}
+      {...rest}
+    />
+  );
+}
+```
+
+```jsx
+function EditDialog({
+  open,
+  onClose,
+  ...rest
+}) {
+  return (
+    <Dialog
+      open={open}
+      onClose={onClose}
+      {...rest}
+    />
+  );
+}
+```
+
+```jsx
+function DrilldownDialog({
+  open,
+  onClose,
+  ...rest
+}) {
+  return (
+    <Dialog
+      open={open}
+      onClose={onClose}
+      {...rest}
+    />
+  );
+}
+```
+
+</Step>
+
+</CodeSurferColumns>
 
 ---
 
@@ -81,6 +221,12 @@ useEffect(() => {
 ```
 
 </CodeSurfer>
+
+---
+
+### Currying
+
+---
 
 ---
 
