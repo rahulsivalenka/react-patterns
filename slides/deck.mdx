@@ -228,6 +228,30 @@ useEffect(() => {
 
 ---
 
+<CodeSurfer theme={oceanicNext}>
+
+```jsx 20:39 subtitle="consider a feedback form" file=./samples/WithoutCurry.txt
+
+```
+
+```diff 25,31,36 subtitle="for each field we have to handle the value change to set the field's value"
+
+```
+
+```diff 4:17 subtitle="the change handlers may look like these"
+
+```
+
+```diff 4:17 subtitle="doesn't this feel repetitive?"
+
+```
+
+```jsx subtitle="we can make it clean and reduce repetitions by using currying" file=./samples/WithCurry.txt
+
+```
+
+</CodeSurfer>
+
 ---
 
 ### State Transitions and Keeping Them DRY

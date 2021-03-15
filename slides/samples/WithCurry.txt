@@ -1,0 +1,31 @@
+function FeedbackForm() {
+  const [values, setValues] = useState({});
+
+  const handleChange = fieldName => e => setValues(v => ({
+    ...v,
+    [fieldName]: e.currentTarget.value,
+  }))
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Enter your name"
+        value={values.name}
+        onChange={handleChange('name')}
+      />
+      <input
+        type="text"
+        placeholder="Enter your email"
+        value={values.email}
+        onChange={handleChange('email')}
+      />
+      <textarea
+        placeholder="Enter some notes"
+        value={values.notes}
+        onChange={handleChange('notes')}
+      />
+      <button type="submit">Save</button>
+    </form>
+  )
+}
